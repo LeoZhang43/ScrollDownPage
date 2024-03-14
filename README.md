@@ -28,6 +28,7 @@ Now the app is accessible at ```localhost:3000```
 
 # Update diary
 2024.3.13: Analyzing the CSS responsive font size
-* [notion notebook](https://sparkly-windscreen-f2a.notion.site/ScrollDownDriven-e99cf642e67541cd8083b565a1acf478)
+* [notion notebook](https://sparkly-windscreen-f2a.notion.site/ScrollDownDriven-e99cf642e67541cd8083b565a1acf478) 
+---
 2024.3.14: Analyzing the CSS selector
 * [notion notebook](https://www.notion.so/CSS-framework-96304f818d5c47e2af05baf74f9e67e7)
