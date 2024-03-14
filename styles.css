@@ -32,92 +32,11 @@
 
     --color-link: var(--color-primary);
     --color-link-hover: var(--color-secondary);
-  }
-}
-
-@layer rhythm {
-  body {
-    --font-size-min: 16;
-    --font-size-max: 20;
-
-    --line-height-min: 1.2;
-    --line-height-max: 1.6;
-
-    --font-size-default: var(--font-size);
-    --line-height-default: var(--line-height);
-
-    /*
-    * Spacing / rhythm
-    */
-    --spacing: var(--RHYTHM);
-
-    /* 
-      Useful heading scales
-      Golden Ratio: 1.618
-      Minor Sixth: 1.6
-      Perfect Fifth: 1.5
-      Augmented Fourth: 1.414
-      Perfect Fourth: 1.333
-      Major Third: 1.25
-      Minor Third: 1.2
-      Major Second: 1.125
-      Minor Second: 1.067
-
-      Once CSS pow() is supported, we can use the following formula to create a scale:
-      --min-font-size: pow(var(--base-font-size-min) * var(--min-heading-scale)), var(--heading-level));
-      --max-font-size: pow(var(--base-font-size-max) * var(--max-heading-scale)), var(--heading-level));
-    */
-
-    --pl: 1.125;
-    --pu: 1.6;
-
-    --s1-min: calc(var(--base-font-size-min) / var(--pl));
-    --s1-max: calc(var(--base-font-size-max) / var(--pu));
-
-    --h6-min: var(--base-font-size-min);
-    --h6-max: var(--base-font-size-max);
-
-    --h5-min: calc(var(--base-font-size-min) * var(--pl));
-    --h5-max: calc(var(--base-font-size-max) * var(--pu));
-
-    --h4-min: calc(var(--h5-min) * var(--pl));
-    --h4-max: calc(var(--h5-max) * var(--pu));
-
-    --h3-min: calc(var(--h4-min) * var(--pl));
-    --h3-max: calc(var(--h4-max) * var(--pu));
-
-    --h2-min: calc(var(--h3-min) * var(--pl));
-    --h2-max: calc(var(--h3-max) * var(--pu));
-
-    --h1-min: calc(var(--h2-min) * var(--pl));
-    --h1-max: calc(var(--h2-max) * var(--pu));
-  }
-
-  h1,
-  h2 {
-    --line-height-min: 1.25;
-    --line-height-max: 1;
-
-    font-size: var(--font-size);
-    font-weight: 200;
-    line-height: var(--line-height);
-    padding-block: calc(var(--grid-correction, 0) / 2);
-  }
-
-  h2 {
-    --font-size-min: var(--h2-min);
-    --font-size-max: var(--h2-max);
-  }
-}
-
-@layer base {
-  :root {
     -webkit-text-size-adjust: 100%;
 
     box-sizing: border-box;
     overflow-wrap: break-word;
   }
-
   *,
   ::before,
   ::after {
@@ -188,10 +107,102 @@
     height: auto;
   }
 }
+
 @layer rhythm {
-  /*
-    Responsive typography with vertical rhythm
-  */
+  body {
+    --font-size-min: 16;
+    --font-size-max: 20;
+
+    --line-height-min: 1.2;
+    --line-height-max: 1.6;
+
+    --font-size-default: var(--font-size);
+    --line-height-default: var(--line-height);
+
+    /*
+    * Spacing / rhythm
+    */
+    --spacing: var(--RHYTHM);
+
+    /* 
+      Useful heading scales
+      Golden Ratio: 1.618
+      Minor Sixth: 1.6
+      Perfect Fifth: 1.5
+      Augmented Fourth: 1.414
+      Perfect Fourth: 1.333
+      Major Third: 1.25
+      Minor Third: 1.2
+      Major Second: 1.125
+      Minor Second: 1.067
+
+      Once CSS pow() is supported, we can use the following formula to create a scale:
+      --min-font-size: pow(var(--base-font-size-min) * var(--min-heading-scale)), var(--heading-level));
+      --max-font-size: pow(var(--base-font-size-max) * var(--max-heading-scale)), var(--heading-level));
+    */
+
+    --pl: 1.125;
+    --pu: 1.6;
+
+    --s1-min: calc(var(--base-font-size-min) / var(--pl));
+    --s1-max: calc(var(--base-font-size-max) / var(--pu));
+
+    --h6-min: var(--base-font-size-min);
+    --h6-max: var(--base-font-size-max);
+
+    --h5-min: calc(var(--base-font-size-min) * var(--pl));
+    --h5-max: calc(var(--base-font-size-max) * var(--pu));
+
+    --h4-min: calc(var(--h5-min) * var(--pl));
+    --h4-max: calc(var(--h5-max) * var(--pu));
+
+    --h3-min: calc(var(--h4-min) * var(--pl));
+    --h3-max: calc(var(--h4-max) * var(--pu));
+
+    --h2-min: calc(var(--h3-min) * var(--pl));
+    --h2-max: calc(var(--h3-max) * var(--pu));
+
+    --h1-min: calc(var(--h2-min) * var(--pl));
+    --h1-max: calc(var(--h2-max) * var(--pu));
+    /* We can now set font-size and line-height to their respective props */
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+  
+    /* 
+      These are our new rem-units and can be used whenever needed to refer to responsive body-font
+      NOTE: Please treat this as a CONST and do not edit or overwrite 
+    */
+    --RHYTHM_UNITS: var(--font-size);
+  
+    /* 
+      Create rhythm by locking to body line-height
+      This unit can now be used anywhere to refer back to the original body line-height
+      and thus establish a vertical rhythm
+      NOTE: Please treat this as a CONST and do not edit or overwrite
+    */
+    --RHYTHM: clamp(
+      min(var(--line-height-min), var(--line-height-max)) * var(--RHYTHM_UNITS),
+      var(--_line-height-base-value) * var(--RHYTHM_UNITS) + var(--_line-height-step) * 100vw,
+      max(var(--line-height-max), var(--line-height-min)) * var(--RHYTHM_UNITS)
+    );
+  
+    /* Here, a safe prop you can overwrite and play with as needed */
+    --spacing: var(--RHYTHM);
+
+    /* Let's save these just in case we need them */
+    --base-font-size-min: var(--font-size-min);
+    --base-font-size-max: var(--font-size-max);
+    --base-line-height-min: var(--line-height-min);
+    --base-line-height-max: var(--line-height-max);
+  }
+
+  h2{
+    --font-size-min: var(--h2-min);
+    --font-size-max: var(--h2-max);
+    font-size: var(--font-size);
+    font-weight: 200;
+    line-height: var(--line-height);
+  }
   * {
     /* Step 1: Establish individual responsive font-size */
   
@@ -273,40 +284,8 @@
       max(var(--line-height-max), var(--line-height-min)) * var(--line-height-units)
     );
   }
-  
-  body {
-    /* We can now set font-size and line-height to their respective props */
-    font-size: var(--font-size);
-    line-height: var(--line-height);
-  
-    /* 
-      These are our new rem-units and can be used whenever needed to refer to responsive body-font
-      NOTE: Please treat this as a CONST and do not edit or overwrite 
-    */
-    --RHYTHM_UNITS: var(--font-size);
-  
-    /* 
-      Create rhythm by locking to body line-height
-      This unit can now be used anywhere to refer back to the original body line-height
-      and thus establish a vertical rhythm
-      NOTE: Please treat this as a CONST and do not edit or overwrite
-    */
-    --RHYTHM: clamp(
-      min(var(--line-height-min), var(--line-height-max)) * var(--RHYTHM_UNITS),
-      var(--_line-height-base-value) * var(--RHYTHM_UNITS) + var(--_line-height-step) * 100vw,
-      max(var(--line-height-max), var(--line-height-min)) * var(--RHYTHM_UNITS)
-    );
-  
-    /* Here, a safe prop you can overwrite and play with as needed */
-    --spacing: var(--RHYTHM);
-
-    /* Let's save these just in case we need them */
-    --base-font-size-min: var(--font-size-min);
-    --base-font-size-max: var(--font-size-max);
-    --base-line-height-min: var(--line-height-min);
-    --base-line-height-max: var(--line-height-max);
-  }
 }
+
 /*
  * Custom properties used
  * Be sure to set these to customize the reset otherwise the defaults will be used
