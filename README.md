@@ -1,3 +1,19 @@
+# notebook
+### if you have any problem in understanding the code, you can check here and read my guideline by analysing the code line by line
+* [ScrollDownDriven](https://www.notion.so/ScrollDownDriven-e99cf642e67541cd8083b565a1acf478) 
+
+# Update diary
+### 2024.3.13: Analyzing the CSS responsive font size
+* [Responsive font-size and line-height](https://sparkly-windscreen-f2a.notion.site/ScrollDownDriven-e99cf642e67541cd8083b565a1acf478) 
+### 2024.3.14: Analyzing the CSS framework 
+* [CSS framework](https://www.notion.so/CSS-framework-96304f818d5c47e2af05baf74f9e67e7)
+### 2024.3.15: Analyzing the custom layout build on top of framework
+* [Custom layout](https://www.notion.so/Custom-layout-acf94dabae83442fad601276d3381134)
+### 2024.3.16: Finish the lay out analysis and solve a problem with font size and line height
+* [Custom layout](https://www.notion.so/Custom-layout-acf94dabae83442fad601276d3381134)
+* [Solve font overflow](https://www.notion.so/solving-the-font-size-overflow-problem-79ea6690c27b4c17a41e88a8e972e8fd)
+
+
 # What is this?
 * This is a HTML and CSS file, it is use to create a scroll down page with astonishing animation features
 * It use pre-build CSS framework which adjust responsive font-size and line height
@@ -25,11 +41,3 @@ npm run dev
 ```
 
 Now the app is accessible at ```localhost:3000```
-
-# Update diary
-### 2024.3.13: Analyzing the CSS responsive font size
-* [Responsive font-size and line-height](https://sparkly-windscreen-f2a.notion.site/ScrollDownDriven-e99cf642e67541cd8083b565a1acf478) 
-### 2024.3.14: Analyzing the CSS selector
-* [CSS framework](https://www.notion.so/CSS-framework-96304f818d5c47e2af05baf74f9e67e7)
-### 2024.3.14: Analyzing the CSS selector
-* [Custom layout](https://www.notion.so/Custom-layout-acf94dabae83442fad601276d3381134)
