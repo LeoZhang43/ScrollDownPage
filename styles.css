@@ -1,4 +1,4 @@
-@layer base, rhythm, layout, components, default, overwrites;
+@layer base, rhythm, layout, customize;
 
 @layer base {
   :root {
@@ -754,3 +754,82 @@ section:nth-child(5) {
   --image: url('https://assets.codepen.io/197359/flower-purple.png');
   --margin-top: 10dvi;
 }
+
+@layer customize{
+  html{
+    scroll-snap-type: y mandatory;
+    timeline-scope: --section, --main, --site-header;
+  }
+  main {
+    view-timeline: --main;
+  }
+  .section {
+    /* Creating a snapping rule on the section element */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  
+    /* Attach the timeline to the section element*/
+    view-timeline: --section;
+  
+    /* Set each section to the full dynamic height of the viewport */
+    height: 100dvh;
+  }
+  .content {
+    /* overflow: hidden; */
+    position: fixed;
+    inset: 0;
+  
+    --contrast: 4;
+    --blur: 0.5rem;
+  
+    animation: blink ease-in-out both;
+    animation-timeline: --section;
+  }
+  @keyframes blink {
+    0%,
+    100% {
+      filter: blur(var(--blur)) contrast(var(--contrast));
+      opacity: 0;
+      visibility: hidden;
+    }
+  
+    50% {
+      filter: blur(0) contrast(1);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .indicator::before {
+    animation: indicate linear both;
+    animation-timeline: --main;
+    animation-range: contain;
+  }
+  
+  /* And we're manually setting the colors because see: lazy comment above */
+  @keyframes indicate {
+    0% {
+      --color-indicator: var(--color-primary);
+      transform: translateY(0);
+    }
+  
+    25% {
+      --color-indicator: var(--color-yellow);
+    }
+  
+    50% {
+      --color-indicator: var(--color-secondary);
+    }
+  
+    75% {
+      --color-indicator: var(--color-red);
+    }
+  
+    100% {
+      --color-indicator: var(--color-purple);
+      transform: translateY(
+        calc(var(--indicator-total-height) - var(--indicator-size))
+      );
+    }
+  }
+}
+

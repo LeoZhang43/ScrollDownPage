@@ -12,7 +12,8 @@
 ### 2024.3.16: Finish the lay out analysis and solve a problem with font size and line height
 * [Custom layout](https://www.notion.so/Custom-layout-acf94dabae83442fad601276d3381134)
 * [Solve font overflow](https://www.notion.so/solving-the-font-size-overflow-problem-79ea6690c27b4c17a41e88a8e972e8fd)
-
+### 2024.3.20: Add scroll function to the page
+* [scroll function](https://www.notion.so/add-scrolling-function-82bc9a157c5c4baebc49712c38ba3d6c)
 
 # What is this?
 * This is a HTML and CSS file, it is use to create a scroll down page with astonishing animation features
