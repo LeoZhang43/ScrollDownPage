@@ -1,6 +1,7 @@
 # notebook
 ### if you have any problem in understanding the code, you can check here and read my guideline by analysing the code line by line
 * [ScrollDownDriven](https://www.notion.so/ScrollDownDriven-e99cf642e67541cd8083b565a1acf478) 
+### this project is running at * [ScrollDownDriven](https://leozhang43.github.io/ScrollDownPage/#snapping) 
 
 # Update diary
 ### 2024.3.13: Analyzing the CSS responsive font size
