@@ -359,7 +359,7 @@
 }
 
 @supports(animation-timeline: view()) {
-  .site-header::after {    
+  /* .site-header::after {    
     background-image: linear-gradient(to right, transparent, black);
     content: '';
     display: block;
@@ -369,7 +369,7 @@
     width: 33%;
     height: calc(var(--spacing) * 1.5 + 2px);
     pointer-events: none;
-  }
+  } */
 }
 .fieldset-wrapper {
     --height: calc(var(--spacing) * 2);
